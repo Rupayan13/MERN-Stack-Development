@@ -1,0 +1,23 @@
+html{
+    background-color: black;
+}
+#main h1{
+    font-family: 'Architects Daughter', cursive;
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+#main p{
+    color: white;
+    text-align: center;
+}
+#main img{
+    border: 5px solid white;
+    width: 100%;
+}
+#main{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 8%;
+}
