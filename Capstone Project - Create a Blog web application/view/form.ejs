@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<main>
+    <% if(locals.foundPost) {%>
+        <form id="postForm" action="/edit/<%= foundPost.id %>" method="POST">
+            <h2>Edit The Post</h2>
+            <label for="postTitle">Title:</label>
+            <input type="text" id="postTitle" name="postTitle" value="<%= foundPost.postTitle %>" required>
+            <label for="postContent">Content:</label>
+            <textarea id="postContent" name="postContent" rows="4" required><%= foundPost.postContent %></textarea>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    <% }else{ %>
+    <form id="postForm" action="/submit" method="POST">
+        <h2>Create New Post</h2>
+        <label for="postTitle">Title:</label>
+        <input type="text" id="postTitle" name="postTitle" required>
+        <label for="postContent">Content:</label>
+        <textarea id="postContent" name="postContent" rows="4" required></textarea>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    <% } %>
+</main>
+<%- include("partials/footer.ejs") %>

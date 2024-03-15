@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+<main>
+    <% if(posts.length>0) {%>
+        <% for(let i=0;i<posts.length;i++) {%>
+            <div class="post">
+                <h2><%= posts[i].postTitle %></h2>
+                <p><%= posts[i].postContent %></p>
+                <div class="post-buttons">
+                    <button class="edit-btn"><a href="/posts/<%= posts[i].id %>">Edit</a></button>
+                    <button class="delete-btn"><a href="/delete/<%= posts[i].id %>">Delete</a></button>
+                </div>
+            </div>
+        <% } %>
+        <% } else { %>
+         <h1>Make a blog to post.</h1>
+        <% } %>
+</main>
+<%- include("partials/footer.ejs") %>
