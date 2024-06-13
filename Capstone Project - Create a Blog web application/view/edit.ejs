@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Application</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/form">Make a Post</a>
+        </nav>
+    </header>
+<main>
+    <% if(locals.foundPost) {%>
+    <form id="postForm" action="/edit/<%= foundPost.id %>" method="POST">
+        <h2>Edit The Post</h2>
+        <label for="postTitle">Title:</label>
+        <input type="text" id="postTitle" name="postTitle" value="<%= foundPost.postTitle %>" required>
+        <label for="postContent">Content:</label>
+        <textarea id="postContent" name="postContent" rows="4" required><%= foundPost.postContent %></textarea>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    <% } %>
+</main>
+<%- include("partials/footer.ejs") %>

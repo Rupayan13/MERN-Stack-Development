@@ -1,0 +1,69 @@
+Here We will see some of the basics SQL queries which is essential for development
+//CRUD Operations
+1. Create a Product Table:-
+
+CREATE TABLE products(
+    id INT NOT NULL,
+    name STRING,
+    price MONEY,
+    PRIMARY KEY(id)
+);
+
+2. Insert some data into Product Table:- 
+
+INSERT INTO products
+VALUES (1, 'Pen', 1.20);
+
+Or,
+
+INSERT INTO products (id, name, price)
+VALUES (1, 'Pen', 1.20);
+
+3. Read data from Product Table:-
+
+SELECT * FROM products;
+
+Or,
+
+SELECT name, price FROM products;
+
+4. WHERE clause
+
+SELECT * FROM products WHERE id=1;
+
+5. Update values from Product Table:-
+
+UPDATE products 
+SET price = 0.80
+WHERE id=2;
+
+6. If we add another column named Stock:-
+
+ALTER TABLE products
+ADD stock INT;
+
+7. Delete records from the Product Table:-
+
+DELETE FROM products
+WHERE id=2;
+
+8. Make a Orders Table and add a foreign key of product id:-
+
+CREATE orders(
+    id INT NOT NULL,
+    order_number INT,
+    product_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
+);
+
+--just enter some values in the order table--
+INSERT INTO orders
+VALUES 
+(1, 4362, 1),
+(2, 2346, 1);
+
+10. How to join the Product and Order Table with using INNER JOIN:-
+SELECT orders.order_number, products.name, products.price, products.stock
+FROM orders
+INNER JOIN products ON orders.product_id = products.id;
